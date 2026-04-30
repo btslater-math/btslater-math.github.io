@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben Slater</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f6;
+      --text: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --accent: #2d4a3e;
+      --accent-light: #3d6b5a;
+      --rule: #d4d0c8;
+      --heading: 'Cormorant Garamond', 'Georgia', serif;
+      --body: 'Karla', 'Helvetica Neue', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+    }
+
+    nav .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    nav .name {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    nav .links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    nav .links a:hover { color: var(--accent); }
+
+    /* --- MAIN --- */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 7rem 2rem 4rem;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-family: var(--heading);
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .hero .subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+
+    .hero .subtitle a:hover {
+      border-color: var(--accent);
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    section h2 {
+      font-family: var(--heading);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+
+    section p {
+      margin-bottom: 0.9rem;
+      color: var(--text);
+    }
+
+    section p:last-child { margin-bottom: 0; }
+
+    /* --- LINKS --- */
+    section a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    section a:hover { border-color: var(--accent); }
+
+    /* --- LISTS --- */
+    .item {
+      margin-bottom: 1.25rem;
+    }
+
+    .item .item-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .item .item-detail {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    /* --- CONTACT --- */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: 0.92rem;
+    }
+
+    .contact-row span {
+      color: var(--text-secondary);
+    }
+
+    /* --- BLOG CALLOUT --- */
+    .blog-callout {
+      background: #f0eee9;
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+
+    .blog-callout .blog-name {
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .blog-callout .blog-name a {
+      color: var(--accent-light);
+      border-bottom: none;
+    }
+
+    .blog-callout .blog-name a:hover {
+      border-bottom: 1px solid var(--accent-light);
+    }
+
+    .blog-callout .blog-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      nav .links { gap: 1rem; }
+      nav .links a { font-size: 0.75rem; }
+      .contact-row { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="name" href="#">Ben Slater</a>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="hero">
+      <h1>Ben Slater</h1>
+      <p class="subtitle">
+        PhD student in algebraic topology at
+        <a href="#">[University Name]</a>.
+        I study [brief research description, e.g., homotopy theory, spectral sequences, etc.].
+      </p>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD student in mathematics at [University Name], working under the
+        supervision of [Advisor Name]. My research focuses on [brief description of
+        research area within algebraic topology].
+      </p>
+      <p>
+        Previously, I completed my [undergraduate/master's] degree at [Institution],
+        where I studied [relevant background].
+      </p>
+      <p>
+        I also write about mathematics on my blog:
+      </p>
+      <div class="blog-callout">
+        <div class="blog-name"><a href="https://yourusername.github.io/dots-and-loops/">Dots &amp; Loops</a></div>
+        <div class="blog-desc">Notes and thoughts on topology, algebra, and whatever else comes to mind.</div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        My work lies at the intersection of [area] and [area]. I'm currently
+        interested in [specific topics or questions].
+      </p>
+      <div class="item">
+        <div class="item-title">
+          <a href="#">Paper Title Goes Here</a>
+        </div>
+        <div class="item-detail">
+          With [Coauthor Name]. Preprint, 2026. [arXiv:XXXX.XXXXX]
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title">
+          <a href="#">Another Paper Title</a>
+        </div>
+        <div class="item-detail">
+          Master's thesis, [University], 2024.
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>
+        I have been a teaching assistant for the following courses:
+      </p>
+      <div class="item">
+        <div class="item-title">[Course Name] &mdash; [Semester Year]</div>
+        <div class="item-detail">
+          [Brief description or link to course materials.]
+          <a href="#">Course materials &rarr;</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title">[Course Name] &mdash; [Semester Year]</div>
+        <div class="item-detail">
+          [Brief description or link to course materials.]
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <p>
+        A PDF version of my CV is available <a href="#">here</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-row">
+        <span>ben.slater [at] university.edu</span>
+        <span>Office: [Building], Room [Number]</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Ben Slater
+  </footer>
+
+</body>
+</html>
